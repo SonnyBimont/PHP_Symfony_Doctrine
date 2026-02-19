@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HelloController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1>Hello {{ name }} {{ nickname }}, agé de {{ age }} ans</h1>
+
+{% if age >= 18 %}
+    <p>Vous êtes majeur.</p>
+{% else %}
+    <p>Vous êtes mineur.</p>
+{% endif %}
+
+
+
+
+    This friendly message is coming from:
+    <ul>
+        <li>Your controller at <code>C:/Users/sonny/OneDrive/Bureau/Develop/test_symfony_doctrine/src/Controller/HelloController.php</code></li>
+        <li>Your template at <code>C:/Users/sonny/OneDrive/Bureau/Develop/test_symfony_doctrine/templates/hello/index.html.twig</code></li>
+    </ul>
+
+<p><a href="{{path ('app_article_show', {'id': 1})}}">Voir l'article 1</a></p>
+
+</div>
+{% endblock %}
