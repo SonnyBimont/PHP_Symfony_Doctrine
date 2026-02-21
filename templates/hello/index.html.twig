@@ -9,24 +9,22 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ name }} {{ nickname }}, agé de {{ age }} ans</h1>
+    <h1>Hello {{ clients[0].nom }} {{ clients[0].mail }}, né le {{ clients[0].dateNaissance|date('d/m/Y') }} </h1>
 
-{% if age >= 18 %}
-    <p>Vous êtes majeur.</p>
+{# Affichage conditionnel basé sur l'année de naissance du client#}
+{% if clients[0].dateNaissance|date('Y') < 1990 %}
+    <p>Vous êtes né avant l'an 2000.</p>
+{% elseif clients[0].dateNaissance|date('Y') == 1990 %}
+    <p>Vous êtes né en l'an 2000.</p>
 {% else %}
-    <p>Vous êtes mineur.</p>
+    <p>Vous êtes né après l'an 2000.</p>
 {% endif %}
 
+{#Affichage de tous les clients #}
+{%for client in clients %}
+    <p>{{ client.nom }} - {{ client.mail }} - {{ client.dateNaissance|date('d/m/Y') }}</p>
+{% endfor %}
 
-
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/sonny/OneDrive/Bureau/Develop/test_symfony_doctrine/src/Controller/HelloController.php</code></li>
-        <li>Your template at <code>C:/Users/sonny/OneDrive/Bureau/Develop/test_symfony_doctrine/templates/hello/index.html.twig</code></li>
-    </ul>
-
-<p><a href="{{path ('app_article_show', {'id': 1})}}">Voir l'article 1</a></p>
 
 </div>
 {% endblock %}

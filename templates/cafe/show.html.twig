@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CafeController!{% endblock %}
+
+{% block body %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+    <h1> {{ cafe.nom }}! </h1>
+
+
+{# Condition if  #}
+{% if cafe.provenance.pays == 'Brésil' %}
+<p> ce café vient du Brésil </p>
+{% elseif cafe.provenance.pays == 'Colombie' %}
+<p> ce café vient de Colombie </p>
+{% elseif cafe.provenance.pays == 'Éthiopie' %}
+<p> ce café vient d'Éthiopie </p>
+{% endif %}
+
+{# affichage directe #}
+<p> Pays d'origine : {{ cafe.provenance.pays }}</p>
+<p> Stock : {{ cafe.stock }}</p>
+
+</div>
+{% endblock %}
